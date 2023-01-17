@@ -1,0 +1,177 @@
+# This config file was created 2022-12-18 10:05:31.853752 by the update_ini script
+# The original config files may be found in the /home/mehdi/linuxcnc/configs/swm-fm45a/swm-fm45a.old.old directory
+
+# Erstellt von stepconf am Tue Oct 21 11:55:16 2014
+# Änderungen an dieser Datei werden beim nächsten
+# Aufruf von stepconf überschrieben.
+
+[EMC]
+# The version string for this INI file.
+VERSION = 1.1
+
+MACHINE = swm-fm45a
+DEBUG = 0
+
+[DISPLAY]
+DISPLAY = axis
+EDITOR = gedit
+POSITION_OFFSET = RELATIVE
+POSITION_FEEDBACK = ACTUAL
+MAX_FEED_OVERRIDE = 2.0
+INTRO_GRAPHIC = linuxcnc.gif
+INTRO_TIME = 1
+PROGRAM_PREFIX = /home/linuxcnc/linuxcnc/nc_files
+INCREMENTS = 5mm 1mm .5mm .1mm .05mm .01mm .005mm
+MIN_SPINDLE_OVERRIDE = 0.5
+MAX_SPINDLE_OVERRIDE = 1.5
+
+[FILTER]
+PROGRAM_EXTENSION = .png,.gif,.jpg Greyscale Depth Image
+PROGRAM_EXTENSION = .py Python Script
+png = image-to-gcode
+gif = image-to-gcode
+jpg = image-to-gcode
+py = python
+
+[RS274NGC]
+
+PARAMETER_FILE = linuxcnc.var
+
+[EMCMOT]
+
+EMCMOT = motmod
+COMM_TIMEOUT = .10
+SERVO_PERIOD = 1000000
+
+[TASK]
+TASK = milltask
+CYCLE_TIME = 0.0010
+
+[HAL]
+HALFILE = swm-fm45a.hal
+HALFILE = swm-fm45a-axis.hal
+HALFILE = swm-fm45a-spindle.hal
+HALFILE = swm-fm45a-io.hal
+
+[HALUI]
+
+[TRAJ]
+
+COORDINATES = XYZ
+LINEAR_UNITS = mm
+ANGULAR_UNITS = degree
+DEFAULT_LINEAR_VELOCITY = 20.00
+MAX_LINEAR_VELOCITY = 60.00
+
+[EMCIO]
+EMCIO = io
+CYCLE_TIME = 0.00100
+TOOL_TABLE = tool.tbl
+
+
+[KINS]
+KINEMATICS = trivkins coordinates=XYZ
+#This is a best-guess at the number of joints, it should be checked
+JOINTS = 3
+
+[AXIS_X]
+MIN_LIMIT = -2000
+MAX_LIMIT = 2000.0
+MAX_VELOCITY = 130
+MAX_ACCELERATION = 25.0
+
+[JOINT_0]
+TYPE = LINEAR
+HOME = 0.0
+HOME_OFFSET = 0
+HOME_SEQUENCE = 0
+HOME_SEARCH_VEL = 0
+HOME_USE_INDEX = TRUE
+HOME_LATCH_VEL = 0
+HOME_IGNORE_LIMITS = yes
+MAX_VELOCITY = 130
+MAX_ACCELERATION = 25.0
+SCALE = 5
+ENC_SCALE = 0.0003
+FERROR = 1
+MIN_FERROR = 0.1
+MIN_LIMIT = -2000
+MAX_LIMIT = 2000.0
+
+# Position controller parameters
+P = 290
+I = 50
+D = 0
+FF0 = 0
+FF1 = 1
+FF2 = 0
+DEADBAND = 5e-05
+MAX_OUTPUT = 1000
+
+[AXIS_Y]
+MIN_LIMIT = -2000
+MAX_LIMIT = 2000.0
+MAX_VELOCITY = 130
+MAX_ACCELERATION = 25.0
+
+[JOINT_1]
+TYPE = LINEAR
+HOME = 0.0
+HOME_OFFSET = 0
+HOME_SEQUENCE = 0
+HOME_SEARCH_VEL = 0
+HOME_USE_INDEX = TRUE
+HOME_LATCH_VEL = 0
+HOME_IGNORE_LIMITS = yes
+MAX_VELOCITY = 130
+MAX_ACCELERATION = 25.0
+SCALE = 5
+ENC_SCALE = 0.0003
+FERROR = 1
+MIN_FERROR = 0.1
+MIN_LIMIT = -2000
+MAX_LIMIT = 2000.0
+
+# Position controller parameters
+P = 280
+I = 0
+D = 0
+FF0 = 0
+FF1 = 1
+FF2 = 0
+DEADBAND = 5e-05
+MAX_OUTPUT = 1000
+
+[AXIS_Z]
+MIN_LIMIT = -2000.0
+MAX_LIMIT = 2000.0
+MAX_VELOCITY = 130
+MAX_ACCELERATION = 25.0
+
+[JOINT_2]
+TYPE = LINEAR
+HOME = 0.0
+HOME_OFFSET = 0
+HOME_SEQUENCE = 0
+HOME_SEARCH_VEL = 0
+HOME_LATCH_VEL = 0
+HOME_USE_INDEX = TRUE
+HOME_IGNORE_LIMITS = yes
+MAX_VELOCITY = 130
+MAX_ACCELERATION = 25.0
+SCALE = 5
+ENC_SCALE = 0.0003
+FERROR = 1
+MIN_FERROR = 0.1
+MIN_LIMIT = -2000.0
+MAX_LIMIT = 2000.0
+
+# Position controller parameters
+P = 285
+I = 0
+D = 0
+FF0 = 0
+FF1 = 1
+FF2 = 0
+DEADBAND = 0.0005
+MAX_OUTPUT = 1000
